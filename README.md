@@ -1,2 +1,2 @@
-# Infytq-Solutions
-tried my best to post all the solutions for the infytq study packages 
+# Infytq-Solution
+# best effort to post all the solutions for the infytq study packages 
