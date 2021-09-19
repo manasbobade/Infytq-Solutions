@@ -1,0 +1,11 @@
+Choice='Yes'
+Sum=0
+while(Choice=='Yes') do
+input Number
+if(Number%4==0) then
+Sum=Sum+Number
+end-if
+display "Do you want to continue? (Enter Yes or No)"
+input Choice
+end-while
+display Sum

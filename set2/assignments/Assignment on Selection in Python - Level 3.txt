@@ -1,0 +1,33 @@
+
+
+def calculate_bill_amount(food_type,quantity_ordered,distance_in_kms):
+    distance_cost=0
+    bill_amount=0
+    if(distance_in_kms<0 or quantity_ordered<1):
+        bill_amount=-1
+        return bill_amount
+
+    if(food_type=="N"):
+        bill_amount+=quantity_ordered*150
+    elif(food_type=="V"):
+        bill_amount+=quantity_ordered*120
+    else:
+        bill_amount=-1
+        return bill_amount
+
+
+    if(distance_in_kms<=3):
+        distance_cost=0
+    elif(distance_in_kms<=6):
+        distance_cost=(distance_in_kms-3)*3
+    else:
+        distance_cost=((distance_in_kms-6)*6)+9
+    bill_amount+=distance_cost
+
+
+    return bill_amount
+
+
+
+bill_amount=calculate_bill_amount("N",2,7)
+print(bill_amount)

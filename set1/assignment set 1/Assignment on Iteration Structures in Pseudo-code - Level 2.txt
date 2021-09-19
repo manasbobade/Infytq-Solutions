@@ -1,0 +1,22 @@
+while(start != end) do
+
+move forward
+
+if(Right_Turn_Available) then
+
+Turn 
+Right
+
+end-if
+
+if(Red_Key_Found) then
+
+Unlock Red Lock
+
+else if(Blue_Key_Found) then
+
+Unlock Blue Lock
+
+end-if
+
+end-while
