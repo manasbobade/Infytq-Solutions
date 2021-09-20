@@ -1,0 +1,19 @@
+#lex_auth_012693819159732224162
+
+def check_palindrome(word):
+    list1=[]
+    list2=[]
+    for i in word:
+        list1.append(i)
+        list2.append(i)
+    list1.reverse()    
+    if(list1==list2):
+        return True
+    else:
+        return False
+
+status=check_palindrome("mango")
+if(status):
+    print("word is palindrome")
+else:
+    print("word is not palindrome")
