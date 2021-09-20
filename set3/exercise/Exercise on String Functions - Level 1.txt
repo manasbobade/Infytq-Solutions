@@ -1,12 +1,11 @@
-# lex_auth_01269438070259712046
-
 def count_names(name_list):
     count1 = 0
     count2 = 0
     for i in name_list:
         if "at" in i:
-            if(i[-2:]=="at"):
+            if(i[1]=="a" and i[2]=="t" and len(i)==3):
                 count1+=1
+                count2+=1
             else:
                 count2+=1
     print("_at -> ",count1)
