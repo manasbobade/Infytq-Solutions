@@ -1,0 +1,19 @@
+
+def encode(message):
+    if(len(message)==1):
+        return ("1"+message)
+    
+    count=1
+    value=""
+    for i in range(1,len(message)):
+        if(message[i]==message[i-1]):
+            count+=1;
+        else:
+            value+=str(count)+message[i-1]
+            count=1
+        if i==len(message)-1:
+             value+=str(count)+message[i]
+          
+    return value         
+encoded_message=encode("AABCCA")
+print(encoded_message)
