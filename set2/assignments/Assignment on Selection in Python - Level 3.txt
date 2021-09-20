@@ -3,7 +3,7 @@
 def calculate_bill_amount(food_type,quantity_ordered,distance_in_kms):
     distance_cost=0
     bill_amount=0
-    if(distance_in_kms<0 or quantity_ordered<1):
+    if(distance_in_kms<=0 or quantity_ordered<1):
         bill_amount=-1
         return bill_amount
 
