@@ -1,0 +1,27 @@
+#lex_auth_01269444890062848087
+
+def find_correct(word_dict):
+    #start writing your code here
+    listcheck=[0,0,0]
+
+    for key,value in word_dict.items():
+        wrong = 0
+        if(len(key)==len(value)):
+            for i in range(0,len(value)):
+                if(value[i]==key[i]):
+                    pass
+                else:
+                    wrong+=1
+            if(wrong>2):
+                listcheck[2]+=1
+            elif(wrong>0 and wrong<=2):
+                listcheck[1]+=1
+            else:
+                listcheck[0]+=1
+        else:
+            listcheck[2]+=1
+
+    return  (listcheck)
+
+word_dict={'RADIO': 'RADICAL', 'CHECK': 'CHEK', 'MIND': 'MUND', 'ALWAYS': 'ALLISWELL', 'VENDOR': 'VENDING'}
+print(find_correct(word_dict))
