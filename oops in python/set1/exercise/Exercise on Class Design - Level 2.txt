@@ -1,8 +1,0 @@
-ClassName
-Employee
-Attributes
-salary
-name
-age
-Methods
-__init__()
