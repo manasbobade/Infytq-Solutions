@@ -1,0 +1,148 @@
+Q1 of 4
+What should be written in line 12 to get the output as 6?
+
+class Example:               #Line1
+    def __init__(self):      #Line2
+        self.__num=5         #Line3
+                             #Line4
+    def set_num(self,num):   #Line5
+        self.__num=num       #Line6
+                             #Line7
+    def get_num(self):       #Line8
+        return self.__num    #Line9
+obj=Example()                #Line10
+obj.set_num(6)               #Line11
+______________               #Line12
+ 
+
+print(obj.__num)
+print(obj.get_num())
+print(obj.num)
+print(num)
+Option print(obj.get_num()) is Correct
+
+Explanation :
+
+This will return obj.__num's value which is 6 after it has been set in Line 11.
+Hence this is the answer.
+Point to be noted: To access the value of a private instance variable of class, we should use the corresponding getter method.
+
+ 
+
+Q2 of 4
+What should be written in line 9 to get the output in line 13 as 5?
+
+class Example:             #Line1
+    def __init__(self):    #Line2
+        self.__num=None    #Line3
+                           #Line4
+    def set_num(self,num): #Line5
+        self.__num=num     #Line6
+                           #Line7
+    def change_num(self):  #Line8
+        __________________ #Line9
+        return self.__num  #Line10
+obj=Example()              #Line11
+obj.set_num(10)            #Line12
+print(obj.change_num())    #Line13
+ 
+
+self.__num=5
+__num=5
+self.num=5
+Option self.__num=5 is Correct
+
+Explanation :
+
+This will change the value of instance variable __num to 5.
+When obj.change_num() is invoked in line 13, obj.__num will be changed to 5 and it will be returned.
+Hence this is the answer.
+Point to be noted: To access the instance variable of a class in a method of the class, we need to use self.instance_variable_name. 
+This is because instance variable belongs to the object on which the method is invoked.
+
+Q3 of 4
+Jennifer is a python developer who has written the below code:
+
+class Dam:
+    def __init__(self,name, length):
+        self.name=name
+        self.__length=length
+    def get_length(self):
+        return self.__length
+
+dam1=Dam("ABC dam",3.5 )
+print("Dam name:",dam1.__name)
+print("Dam Length", dam1.__length)
+She desires the output to be: 
+Dam name: ABC dam
+Dam length: 3.5 
+but, she is unable to proceed due to an error. Which of the following steps should she follow to get the desired output?
+YOU MUST CHOOSE TWO OPTIONS.
+
+Change Line 9 to: print("Dam name:",dam1.name)
+Change Line 9 to: print("Dam name:",dam1.get_name())
+Change Line 10 to : print("Dam length:", dam1.length)
+Change Line 10 to : print("Dam length:", dam1.get_length())
+Option Change Line 9 to: print("Dam name:",dam1.name) is Correct
+
+Explanation :
+
+name being a public attribute of Dam class, it can be directly accessed using Dam object, dam1 i.e dam1.name
+length being a private attribute of Dam class, it need to be accessed using get_length(). i.e., dam1.get_length()
+Hence this is the answer.
+Point to be noted:
+
+Public instance variable of a class can be accessed directly outside the class using its object reference.
+
+Private instance variable of a class cannot be accessed directly outside the class using its object reference. 
+For this, we have to use the corresponding getter method.
+
+Option Change Line 10 to : print("Dam length:", dam1.get_length()) is Correct
+
+Explanation :
+
+Can a private attribute of a class be accessed directly using its object reference outside the class?
+How can we access a public attribute outside the class?
+You have gone wrong in your answer, explore the code further by trying to answer the above question.
+
+Q4 of 4
+What is the output of the following code snippet?
+
+class Table:
+    def __init__(self):
+        self.no_of_legs=4
+        self.__glass_top=None
+        self.__wooden_top=None
+
+    def assign_data(self,glass_top,wooden_top):
+        self.__glass_top=glass_top
+        self.__wooden_top=wooden_top
+
+    def identify_rate(self,glass_top,wooden_top):
+        self.assign_data(glass_top, wooden_top)
+        if(self.__glass_top==True):
+            rate=20000
+        elif(self.__wooden_top==True):
+            rate=30000
+        else:
+            rate=0
+        return rate
+dining_table=Table()
+rate=dining_table.identify_rate(True, False)
+print(rate)
+ 
+
+30000
+0
+20000
+Error: A method cannot be invoked from another method of the same class
+Option 20000 is Correct
+
+Explanation :
+
+Line 20 creates an object of Table class, dining_table with __glass_top=None and __wooden_top=None.
+Line 21 invokes identify_rate() on dining_table which in turn invokes assign_data() on the same object.
+Based on the values of dining_table’s __glass_top and __wooden_top assigned in assign_data(), if condition in line 13 evaluates to True and rate is assigned with value 20000 which is printed in line 22.
+Hence this is the answer.
+
+Point to be noted: It is possible to invoke a method from another method of the same class using self.method_name()

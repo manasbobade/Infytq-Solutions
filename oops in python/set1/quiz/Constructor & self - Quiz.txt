@@ -1,0 +1,293 @@
+Q1 of 10
+Choose the statements which are CORRECT with respect to the below code:
+
+class Employee:
+    def __init__(self):
+        self.employee_id = None
+    def check_eligibility(self):
+        if(self.employee_id>=9000 and self.employee_id<=10000):
+            print("The employee is eligible for special benefits")
+        else:
+            print("The employee is not eligible for special benefits")
+emp1=Employee()
+emp1.employee_id=10000
+emp1.check_eligibility()
+emp2=Employee()
+emp2.employee_id=4500
+emp2.check_eligibility()
+ 
+
+There will be only one employee_id variable created for both the objects - emp1 and emp2
+There will be two employee_id variables created - one for emp1 and one for emp2
+When check_eligibility() is invoked on emp1, self refers to emp1
+When emp2.check_eligibility() is invoked, self.employee_id will have value None
+When emp2.check_eligibility() is invoked, line 8 will get executed
+Option There will be two employee_id variables created - one for emp1 and one for emp2 is Correct
+
+Explanation :
+
+Do you think the employee_id of the two employees, emp1 and emp2 are the same?
+When the method is invoked in Line 11 and 14, whose (emp1 or emp2’s) attributes will the method access?
+You have gone wrong in your selection, explore further by trying to answer the above questions.
+
+Option When check_eligibility() is invoked on emp1, self refers to emp1 is Correct
+
+Explanation :
+
+Do you think the employee_id of the two employees, emp1 and emp2 are the same?
+When the method is invoked in Line 11 and 14, whose (emp1 or emp2’s) attributes will the method access?
+You have gone wrong in your selection, explore further by trying to answer the above questions.
+
+Option When emp2.check_eligibility() is invoked, line 8 will get executed is Correct
+
+Explanation :
+
+Do you think the employee_id of the two employees, emp1 and emp2 are the same?
+When the method is invoked in Line 11 and 14, whose (emp1 or emp2’s) attributes will the method access?
+You have gone wrong in your selection, explore further by trying to answer the above questions.
+
+Q2 of 10
+What is the output of the below code snippet?
+
+class Example:
+    def __init__(self,num):
+        self.num=num
+
+    def set_num(self,num):
+        self.num=num
+
+    def get_num(self):
+        return self.num
+obj=Example(10)
+print(obj.get_num())
+obj.set_num(15)
+print(obj.get_num())
+a. 10
+
+    10
+
+b. 10
+
+    15
+
+c. Error: constructor cannot accept a value
+
+a
+b
+c
+Option b is Correct
+
+Explanation :
+
+Line 10 creates an object obj of Example class and initializes it with 10.
+Line 11 prints obj.num's value which is 10.
+Line 12 modifies the value of obj.num to 15.
+Line 13 prints obj.num's value which is 15.
+Hence this is the answer.
+Point to be noted: 
+
+Parameterized constructor accepts values which are used to initialize the instance variables of the object being created.
+
+Value initialized in constructor can be later modified by any other method of the class when invoked on an object of the same class.
+
+Q3 of 10
+What is the output of the following code snippet?
+
+class Example:
+    def __init__(self,num):
+        self.num=num
+
+    def set_num(self,num):
+        num=num
+
+    def get_num(self):
+        return self.num
+obj=Example(10)
+print(obj.get_num())
+obj.set_num(15)
+print(obj.get_num())
+a. 10
+
+    10
+
+b. 10
+
+    15
+
+c. Error: setters can assign value only to instance variables
+
+a
+b
+c
+Option a is Correct
+
+Explanation :
+
+Line 10 creates an object obj of Example class and initializes it with 10.
+Line 11 prints obj.__num's value which is 10.
+Line 12 invokes obj.set_num() by passing the value of local variable num as 15.
+Inside the method, it's the same local variable, num which is assigned 15 again. 
+Line 13 prints obj.__num's value which is 10 as its value has not changed after Line 11.
+Hence this is the answer.
+Point to be noted: It is possible to have the same name for a local and instance variable. When accessed using self, it refers to the instance variable.
+
+Q4 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self):
+        cust_id = 100
+
+c1=Customer()
+print(c1.cust_id)
+ 
+
+100
+Error
+None
+Option Error is Correct
+
+Explanation :
+
+In line 3, id is a local variable. In line 6 we are trying to access id as an attribute. Since the customer object does not have an attribute called id, we get an AttributeError.
+
+Q5 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self):
+        self.id = 100
+
+c1=Customer()
+print(c1.id)
+ 
+
+100
+Error
+None
+Option 100 is Correct
+
+Explanation :
+
+In line 3 id is made an attribute using self. Hence in line 6 it can be accessed
+
+Q6 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self,id):
+        id = 100
+
+c1=Customer(200)
+print(c1.id)
+ 
+
+100
+Error
+200
+Option Error is Correct
+
+Explanation :
+
+In line 3, id is a local variable. In line 6 we are trying to access id as an attribute. Since the customer object does not have an attribute called id, we get an AttributeError
+
+Q7 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self,id1):
+        self.id = id1
+
+c1=Customer(200)
+print(c1.id1)
+ 
+
+200
+Error
+None
+Option Error is Correct
+
+Explanation :
+
+In line 3, id is a attribute. In line 6 we are trying to access id1 as an attribute. Since the customer object does not have an attribute called id1, we get an AttributeError
+
+Q8 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self,id1):
+        self.id = id1
+
+c1=Customer(200)
+print(c1.id)
+ 
+
+200
+Error
+None
+Option 200 is Correct
+
+Explanation :
+
+The value 200 has been passed to the constructor where it is assigned to the attribute id
+
+Q9 of 10
+What is the output of the following code snippet?
+
+class Book:
+    def __init__(self):
+        self.title=None
+
+
+my_fav=Book()
+my_fav.title="Head First Programming"
+your_fav=Book()
+your_fav.title="Learn Python the hard way"
+my_fav.title="Learning Python"
+print("My favorite is",my_fav.title)
+print("Your's is",your_fav.title)
+a. My favorite is Head First Programming
+    Your's is Learn Python the hard way
+
+b. My favorite is Learning Python
+    Your's is Learning Python
+
+c. My favorite is Learning Python
+    Your's is Learn Python the hard way
+
+d. Error: An instance variable cannot be modified directly using its object reference.
+
+a
+b
+c
+d
+Option c is Correct
+
+Explanation :
+
+Line 6 creates an object of Book class, my_fav and initializes its attribute, title to None.
+Lines 7 and 10 modify the values of my_fav's attributes.
+Line 8 creates another object of Book class, your_fav and initializes its attribute title to None.
+Line 9 modifies the value of your_fav's title.
+Line 11 prints the value of my_fav's title which is "Learning Python" and your_fav's title which is "Learning Python the hard way"
+Hence this is the answer.
+Point to be noted: 
+
+Value of a public instance variable of a class can be modified outside the class using its object reference.
+When you change the value of instance variable of one object, there is no impact on the instance variables of other objects of the same class.
+Q10 of 10
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(id,self,age):
+        id.self=self
+        id.age=age
+
+c1=Customer(100,20)
+print(c1.self)
+ 
+
+100
+20
+Error
+Option 100 is Correct
