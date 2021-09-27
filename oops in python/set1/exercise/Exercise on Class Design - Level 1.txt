@@ -1,0 +1,8 @@
+ClassName
+Employee
+Attributes
+name
+age
+salary
+Methods
+__init__()

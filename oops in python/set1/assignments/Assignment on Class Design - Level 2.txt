@@ -1,0 +1,11 @@
+ClassName
+Instructor
+Attributes
+experience
+avg_feedback
+technology_skill
+instructor_name
+Methods
+__init__()
+allocate_course(technology)
+check_eligibility()
