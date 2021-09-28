@@ -1,0 +1,10 @@
+
+class Classroom:
+    classroom_list = ['a', 'b', 'c', 'd']
+
+    @staticmethod
+    def search_classroom(class_room):
+        for check_room in Classroom.classroom_list:
+            if check_room.lower() == class_room.lower():
+                return "FOUND"
+        return -1

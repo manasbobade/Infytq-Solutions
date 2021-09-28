@@ -1,0 +1,47 @@
+class Ticket:
+    counter = 0
+
+    def __init__(self, passenger_name, source, destination):
+        self.__passenger_name = passenger_name.upper()
+        self.__source = source.upper()
+        self.__destination = destination.upper()
+        self.__ticket_id = None
+
+    def get_passenger_name(self):
+        return self.__passenger_name
+
+    def get_source(self):
+        return self.__source
+
+    def get_destination(self):
+        return self.__destination
+
+    def get_ticket_id(self):
+        return self.__ticket_id
+
+    def validate_source_destination(self):
+        if self.__source == "DELHI":
+            destinationlist=["MUMBAI","CHENNAI","KOLKATA","PUNE"]
+            if self.__destination in destinationlist :
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def generate_ticket(self):
+        if self.validate_source_destination():
+            Ticket.counter += 1
+            if Ticket.counter < 10:
+                self.__ticket_id = self.__source[0] + self.__destination[0] + str(0) + str(Ticket.counter)
+            else:
+                self.__ticket_id = self.__source[0] + self.__destination[0] + str(Ticket.counter)
+            return self.__ticket_id
+        else:
+            self.__ticket_id = None
+
+
+T1 = Ticket("mohan", "delhi", "mumbai")
+T2 = Ticket("Ram", "Delhi", "Pune")
+print(T1.generate_ticket())
+print(T2.generate_ticket())

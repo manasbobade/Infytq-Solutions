@@ -1,0 +1,381 @@
+Q1 of 9
+What is the output of the following code snippet?
+
+class Lion:
+    __water_source="well in the circus"
+
+    def __init__(self,name, gender):
+        self.__name=name
+        self.__gender=gender
+
+    def drinks_water(self):
+        print(self.__name,
+        "drinks water from the",Lion.__water_source)
+
+    @staticmethod
+    def get_water_source():
+        return Lion.__water_source
+
+print( "Water source of lions:",Lion.get_water_source())
+simba=Lion("Simba","Male")
+simba.drinks_water()
+Water source of lions _____1________ 
+
+______2______ drinks water from the ______3_______
+
+ 
+
+None, Simba, well
+well, Lion, well in the circus
+well in the circus, Simba, well in the circus
+well in the circus, Simba, None
+Option well in the circus, Simba, well in the circus is Correct
+
+Explanation :
+
+Line 14 invokes Lion’s static method, get_water_source() and prints the value of its static variable, __water_source
+Line 15 creates an object of Lion class, simba with __name="Simba" and __gender="Male".
+Line 16 invokes drinks_water() on simba and prints simba's name and Lion's __water_source.
+Hence this is the answer.
+
+Point to be noted:
+
+A static variable can be accessed in a non-static method.
+
+A static variable/method can be accessed using class name.
+
+Q2 of 9
+What will be the output of the following snippet?
+
+class Example:
+    num=10
+    @staticmethod
+    def add(num1,num2):
+        result=(num1+num2)*Example.num
+        return result
+print(Example.add(100, 200))
+ 
+
+Error: num being static cannot be accessed in add() method
+Error: add() method cannot be invoked using Example
+3000
+Error: Example.num is not initialized
+Option 3000 is Correct
+
+Explanation :
+
+Line 7 invokes static method, add() of Example class by passing 100 to num1 and 200 to num2.
+When Example class is accessed in Line 7, static variable num is initialized with 10.
+Line 5 accesses static variable num of Example class and assigns 3000 to result.
+Line 6 returns the value of result to Line 7, which prints it.
+Hence this is the answer.
+
+Point to be noted:
+
+Static variable/method can be accessed using class name.
+
+First time the class is accessed, static variables will be initialized.
+
+Static variables can be accessed in static methods using class name.
+
+Q3 of 9
+What will be the output of the following snippet?
+
+class Demo:
+    num=5
+    def __init__(self,status):
+        num=10
+        print(status,num)
+d=Demo('A')
+ 
+
+
+ 
+
+A 5
+A 10
+Error: num should be accessed using in __init__() method
+Option A 10 is Correct
+
+Explanation :
+
+Line 6 creates an object of Demo class, d, initializes static variable num to 10 and invokes the constructor by passing 'A' to status.
+Line 4 initializes local variable num to 10. (Note: a local variable and static variable can have the same name. If accessed using class name, it's the static variable, otherwise it's the local variable)
+Line 5 prints the value of local variables, status and num which is 'A' and 10.
+Hence this is the answer.
+Point to be noted:
+It is possible to have the same name for a static variable and local variable. When accessed using class name, it refers to static variable.
+
+Q4 of 9
+What is the output of the following code snippet?
+
+class ClassA:
+    __var1=20
+    def __init__(self,var2):
+        self.__var2 = var2
+
+    def method1(self):
+        self.__var2=self.__var2+1
+        ClassA.__var1 = ClassA.__var1 -1
+
+    def method2(self):
+        print(ClassA.__var1)
+        print(self.__var2)
+obj1=ClassA(1)
+obj1.method1()
+obj1.method2()
+obj2=ClassA(2)
+obj2.method2()
+a) 20
+    1
+    20
+    2
+
+b) 19
+    2
+    18
+    3
+
+c) 19
+    2
+    19
+    2
+
+d) 19
+    2
+    19
+    3
+
+a
+b
+c
+d
+Option c is Correct
+
+Explanation :
+
+Line 13 creates an object of ClassA, obj1 with __var2=1 and also initializes ClassA's static variable __var1 to 20.
+Line 14 invokes method1() on obj1 and updates obj1's __var2 to 2 and ClassA's __var1 to 19.
+Line 15 invokes method2() on obj1 which prints ClassA's __var1 and obj's __var2 which is 19 and 2 respectively. 
+Line 16 created another object of ClassA, obj2 with __var2=2
+Line 17 invokes method2() on obj2 which prints ClassA's __var1 which is still 19 and obj2's __var2 which is 2.
+Hence this is the answer.
+
+Point to be noted: Static variable is common to all the objects of the class. Change made using one object will be applicable for other objects also.
+
+Q5 of 9
+Choose the statements which are INCORRECT with regard to the below code.
+
+class Lion:
+    __water_source="well in the circus"
+
+    def __init__(self,name, gender):
+        self.__name=name
+        self.__gender=gender
+
+    def drink_water(self):
+        print(self.__name,"drinks water from the",Lion.__water_source)
+
+simba=Lion("Simba","Male")
+nala=Lion("Nala","Female")
+simba.drink_water()
+nala.drink_water()
+a) There will be only one __water_source variable created for both simba and nala objects
+
+b) There will be two separate __water_source variables created for both simba and nala objects
+
+c) drink_water() cannot access __water_source variable
+
+d) __water_source should be always accessed using self in a method of the same class
+
+e) __water_source can be accessed using Lion in a method of the same class
+
+a
+b
+c
+d
+e
+Option b is Correct
+
+Explanation :
+
+__water_source being a static variable, there will be one created for all the objects of Lion class
+drink_water being a non-static method can access the static variable __water_source
+__water_source should be accessed using class name, Lion in a method of the same class.
+
+Option c is Correct
+
+Option d is Correct
+
+Q6 of 9
+What will be the output of the following snippet?
+
+class Example:
+    def __init__(self):
+        self.__num=10
+    @staticmethod
+    def display():
+        self.__num+=1
+        print(self.__num)
+obj=Example()
+obj.display()
+ 
+
+10
+11
+Error: Static method can access only static variables
+Option Error: Static method can access only static variables is Correct
+
+Explanation :
+
+ 
+
+Line 6 inside display() method is accessing an instance variable of Example class resulting in an error.
+Hence this is the answer.
+
+Point to be noted: A static method cannot access an instance variable as this method does not belong to any object. Instead it belong to the class in which it is written.
+
+Q7 of 9
+The following is a piece of python code, choose the correct option with respect to the type and number of variables:
+
+class ClassA:
+    __var1=500
+    def __init__(self, var2):
+        self.__var2=var2
+    def method1(self,var3):
+        self.__var2 = ClassA.__var1*var3
+ 
+
+The code has 1 static, 1 instance and 2 local variables
+The code has 1 static, 1 instance and 0 local variables
+The code has 0 static, 1 instance and 2 local variables
+The code has 0 static, 1 instance and 0 local variables
+Option The code has 1 static, 1 instance and 2 local variables is Correct
+
+Explanation :
+
+In this code, __var1 is a static variable, __var2 is an instance variable, var2, var3 and self in both methods are local variables.
+Though self is a local variable referring to the current object, we have not included it in the count of local variables as it is specific to Python.
+Other OOP languages like Java, C# etc. does not have self.
+Hence this is the answer.
+Point to be noted:
+
+Any variable created outside the methods of the class is a static variable
+
+Any variable created using self.variable_name is an instance variable
+
+Any variable created locally in a method is a local variable.
+
+Q8 of 9
+What will be the output of the following code?
+
+class Util:
+    @staticmethod
+    def is_valid_number (amount):
+        try:
+            if (float(amount))>0 :
+                return True
+            return False
+        except:
+            return False
+
+class AccountUI:
+    def get_input_for_deposit(self, amount):
+        if (not Util.is_valid_number(amount)):
+            print("Amount should be greater than 0. Try again")
+        else:
+            print("Successfully deposited")
+
+AccountUI().get_input_for_deposit("-2000")
+ 
+
+Error
+Amount should be greater than 0. Try again
+Successfully deposited
+Option Amount should be greater than 0. Try again is Correct
+
+Explanation :
+
+Your answer is Right
+
+Q9 of 9
+What is the error in the below code and how can it be resolved?
+
+class Util:
+    @staticmethod
+    def is_valid_number (amount):
+        try:
+            if (float(amount))>0 :
+                return True
+            return False
+        except:
+            return False
+
+class AccountUI:
+    def get_input_for_deposit(self, amount):
+        if (not is_valid_number(amount)):
+            print("Amount should be greater than 0. Try again")
+        else:
+            print("Successfully deposited")
+Option A
+
+class Util:
+    def is_valid_number (amount):
+        try:
+            if (float(amount))>0 :
+                return True
+            return False
+        except:
+            return False
+class AccountUI:
+    def get_input_for_deposit(self, amount):
+        if (not Util.is_valid_number(amount)):
+            print("Amount should be greater than 0. Try again")
+        else:
+            print("Successfully deposited")
+Option B
+
+class Util:
+	@staticmethod
+    def is_valid_number (amount):
+        try:
+            if (float(amount))>0 :
+                return True
+            return False
+        except:
+            return False
+
+class AccountUI:
+    def get_input_for_deposit(self, amount):
+        if (not Util.is_valid_number(amount)):
+            print("Amount should be greater than 0. Try again")
+        else:
+            print("Successfully deposited")
+Option C
+
+class Util:
+    def is_valid_number (amount):
+        try:
+            if (float(amount))>0 :
+                return True
+            return False
+        except:
+            return False
+
+class AccountUI:
+    def get_input_for_deposit(self, amount):
+        if (not Util().is_valid_number(amount)):
+            print("Amount should be greater than 0. Try again")
+        else:
+            print("Successfully deposited")
+ 
+
+Both B and C
+Only A
+Only B
+Only C
+Option Both B and C is Correct
+
+Explanation :
+
+Your answer is Righ

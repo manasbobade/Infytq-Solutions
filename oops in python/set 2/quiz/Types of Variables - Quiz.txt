@@ -1,0 +1,12 @@
+Instance Variables
+name
+gender
+
+Static Variables
+water_source
+
+Instance Methods
+drinks_water(self)
+
+Static Methods
+get_water_source()

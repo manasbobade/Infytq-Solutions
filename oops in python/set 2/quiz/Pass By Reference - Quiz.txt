@@ -1,0 +1,17 @@
+What is the output of the following code snippet?
+
+class Customer:
+    def __init__(self, cust_id, age):
+        self.cust_id = cust_id
+        self.age = age
+
+c1=Customer(100,20)
+
+def change(c2):
+    c2=Customer(100,21)
+
+change(c1)
+print(c1.age)
+ 
+
+20
