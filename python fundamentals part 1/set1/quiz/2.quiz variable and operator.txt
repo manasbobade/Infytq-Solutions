@@ -1,0 +1,61 @@
+11 matches Num1+Num2
+
+-1 matches Num1-Num2
+
+30 matches Num1*Num2
+
+0 matches Num1/Num2
+
+5 matches Num1%Num2
+
+
+
+
+
+Q2 of 3
+Assume, Num1=5, Num2=6.
+
+Num1 <  Num2
+
+Num1 <=  Num2
+
+Num1 > Num2
+
+Num1 >= Num2
+
+Num1 != Num2
+
+Identify the expressions which would result in True?
+
+a. 1, 2, 3
+
+b. 1, 2, 5
+
+c. 2, 3, 4
+
+d. 1, 4, 5 
+
+b is correct
+
+
+
+
+Q3 of 3
+Assume, Num1=5, Num2=6.
+
+(Num1 < Num2) and (Num1 != Num2)
+
+(Num2 >= Num1) or (Num1 > Num2)
+
+not (Num1 == Num2)
+
+Identify the expressions which would result in True?
+
+ All the given options are correct
+
+
+
+
+
+
+

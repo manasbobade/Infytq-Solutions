@@ -1,0 +1,15 @@
+Q1 of 1
+What is the outcome of the following pseudo-code?
+
+input Counter
+while(Counter<5) do
+  Counter=Counter+1
+  display Counter
+end-while
+Assume that the input value provided to variable, Counter is 1.
+
+2,3,4,5
+2,3,4
+1,2,3,4
+1,2,3,4,5
+Option 2,3,4,5 is Correct

@@ -1,0 +1,39 @@
+Q1 of 2
+What is the output of the following code snippet?
+
+sample_dict = {'a':1,'b':2}
+sample_dict.update({'b':5, 'c':10 })
+print(sample_dict.get('b'), sample_dict.get('c'))
+ 
+
+5,10
+2 None
+2 10
+5 None
+Option 5,10 is Correct
+
+
+
+
+
+
+
+
+
+Q2 of 2
+Assume that a dictionary has data in the form of { key1:value1, key2:value2…}
+
+my_library =
+{
+    103 : "Alice in Wonderland",
+    104 : "The Turning Point",
+    113 : "Wings on Fire",
+    134 : "Harry Potter"
+}
+What do you think my_library[104] would point to ?
+
+104
+This is a dictionary and not a list, you cant do that!
+The Turning Point
+There are only 4 elements here, what on earth are you calling index 104 for
+Option The Turning Point is Correct

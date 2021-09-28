@@ -1,0 +1,14 @@
+
+def generate_ticket(airline,source,destination,no_of_passengers):
+    ticket_number_list=[]
+    ticket=""
+    for i in range(0,no_of_passengers):
+        ticket=airline+":"+source[:3]+":"+destination[:3]+":"+str(101+i)
+        ticket_number_list.append(ticket)
+    if(len(ticket_number_list)<=5):
+        return ticket_number_list
+    else:
+        return ticket_number_list[-5:]
+
+
+print(generate_ticket("AI","Bangalore","London",7))

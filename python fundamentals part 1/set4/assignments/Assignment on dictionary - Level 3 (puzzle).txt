@@ -1,0 +1,30 @@
+#lex_auth_0127382283825971201450
+
+def max_frequency_word_counter(data):
+    word=""
+    frequency=0
+    frequency_counter={}
+    data=data.lower()
+    wordlist=data.split()
+    max=1
+    maxwordlist=[]
+    for i in wordlist:
+        if i not in frequency_counter:
+            frequency_counter[i]=1
+        else:
+            frequency_counter[i]+=1
+            if (frequency_counter[i]>max):
+                max=frequency_counter[i]
+    for key,value in frequency_counter.items():
+        if value==max:
+            if(len(key)>len(word)):
+                word=key
+            frequency=value
+
+
+    print(word,frequency)
+
+
+#Provide different values for data and test your program.
+data="Courage is not the absence of fear but rather the judgement that something else is more important than fear"
+max_frequency_word_counter(data)

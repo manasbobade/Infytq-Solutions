@@ -1,0 +1,60 @@
+Q1 of 3
+Consider the following list of pan card numbers:
+pancard_list=["AABGT6715H", "UFFAC4352T", "IFSBD9163K", "JOOEC1225H","RWXAFE187B"] 
+
+What is the output of the below two print statements?
+
+print(pancard_list[3][6], end=" ")
+
+print(pancard_list[4][3:])
+
+9 OEC1225H
+2 AFE187B
+9163K O
+225H A
+Option 2 AFE187B is Correct
+
+
+
+
+Q2 of 3
+What is the output of the code given below?
+
+message="welcome to Mysore"
+word=message[-7:]
+if(word=="mysore"):
+    print("got it")
+else:
+    message=message[3:14]
+    print(message)
+ 
+
+come to Myso
+come to Mys
+lcome to Mys
+lcome to Myso
+Option come to Mys is Correct
+
+
+
+
+
+
+Q3 of 3
+What is the output of the below code?
+
+song="JINGLE Bells jingle Bells Jingle All The Way"
+song.upper()
+song_words=song.split()
+count=0
+for word in song_words:
+    if(word.startswith("jingle")):
+        count=count+1
+print(count)
+ 
+
+0
+3
+2
+1
+Option 1 is Correct

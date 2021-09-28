@@ -1,0 +1,133 @@
+Q1 of 5
+Given the list list1 = ["e","d","u","c","a","t","i","o","n"]
+What expression will result in the list ["c", "a", "t"] ?
+
+list1[2:5]
+list1[3:6]
+list1[5:2]
+list1[3:5]
+Option list1[3:6] is Correct
+
+
+
+
+
+
+Q2 of 5
+What is the output of the following code snippet?
+
+num_list = [100.5,30.465,-1.22,20.15]
+num_list.insert(1, -100.5)
+num_list.pop(0)
+num_list.sort()
+print(num_list[0])
+ 
+
+100.5
+-100.5
+30.465
+Option -100.5 is CorrectQ2 of 5
+What is the output of the following code snippet?
+
+num_list = [100.5,30.465,-1.22,20.15]
+num_list.insert(1, -100.5)
+num_list.pop(0)
+num_list.sort()
+print(num_list[0])
+ 
+
+100.5
+-100.5
+30.465
+Option -100.5 is Correct
+
+
+
+
+
+
+
+
+
+
+Q3 of 5
+Which among the following statements may result in an error?
+
+Assume that the statements are executed in the order in which it is written.
+
+a. list1=[5,10,15,20,25]
+b. print(len(list1))
+c. print(list1[4])
+d. print(list1[5])
+e. print(list1[4:5])
+f. list1[2]=12
+g. print(list1)
+h. list1=list1+[8,9]
+
+b
+d
+e
+h
+Option d is Correct
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q4 of 5
+What is the output of the following code snippet?
+
+
+
+[0, 0, 0, 0, 0]
+[10, 20, 30, 40, 50]
+[0, 0, 10, 20, 30]
+[0, 10, 20, 30, 40]
+Option [0, 0, 10, 20, 30] is Correct
+
+
+
+
+
+
+
+Q5 of 5
+How many comparisons will take place before flag becomes 1?
+
+num_list = [1,33,31,5,26,7,8,92,10]
+num = 7
+flag = 0
+for item in num_list:
+    if(item == num):
+        flag = 1
+    else:
+        continue
+if(flag == 1):
+    print(num, "found in the list")
+else:
+    print(num, "NOT found in the list")
+ 
+
+6
+5
+1
+9
+Option 6 is Correct
+
+
+
+
+
+
+

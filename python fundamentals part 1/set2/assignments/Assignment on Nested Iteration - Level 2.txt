@@ -1,0 +1,17 @@
+#lex_auth_012693813706604544157
+
+def find_max(num1, num2):
+    if(num1==num2):
+        return -1
+    max_num=-1
+    # Write your logic here
+    for i in range(num1, num2 + 1):
+        checknumber = str(i)
+        if (len(checknumber)==2and int(checknumber)%5==0):
+            if ((int(checknumber[0])+int(checknumber[1]))%3==0):
+                max_num = i
+    return max_num
+
+#Provide different values for num1 and num2 and test your program.
+max_num=find_max(10,15)
+print(max_num)

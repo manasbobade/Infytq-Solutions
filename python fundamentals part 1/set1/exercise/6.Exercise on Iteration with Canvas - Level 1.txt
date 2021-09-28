@@ -1,0 +1,9 @@
+display Daylight
+add Mountain
+display Sunrise
+display Snow
+for(Counter=0, Counter<=3, Counter=Counter+1 )
+add Sheep
+end-for
+
+Congratulations !!! Your answer is right.

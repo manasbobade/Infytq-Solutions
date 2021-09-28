@@ -1,0 +1,31 @@
+
+
+def encrypt_sentence(sentence):
+    #start writing your code here
+    wordlist=sentence.split()
+    vowellist="aeiouAEIOU"
+    encrypted_sentence=[]
+    encryptmsg=""
+    for i in range(0,len(wordlist)):
+        if(i%2==0):
+            encrypted_sentence.append(wordlist[i][::-1])
+        else:
+            vowel = ""
+            consonent = ""
+            for j in wordlist[i]:
+
+                if j in vowellist:
+                    vowel+=j
+                else:
+                    consonent+=j
+
+            encrypted_sentence.append(consonent+vowel)
+
+    for i in encrypted_sentence:
+        encryptmsg+=i+" "
+    encryptmsg=encryptmsg[:-1]
+    return encryptmsg
+
+sentence="The sun rises in the east"
+encrypted_sentence=encrypt_sentence(sentence)
+print(encrypted_sentence)
