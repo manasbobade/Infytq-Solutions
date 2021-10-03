@@ -1,0 +1,95 @@
+Q1 of 3
+What is the output of the following code snippet?
+
+class Parent:
+    def __init__(self,num):
+        self.__num=num
+    def get_num(self):
+        return self.__num
+class Child(Parent):
+    def show(self):
+        print("This is in child class")
+son=Child(100)
+print(son.get_num())
+son.show()
+ 
+
+100 This is in child class
+Error: Child object, obj does not have __num as an attibute
+Error: Child class should have a constructor
+Error: Child object cannot invoke a parent method
+Option 100 This is in child class is Correct
+
+Explanation :
+
+Line 9 creates an object of Child class, son with __num=100. 
+Line 10 invokes get_num() on son and prints son.__num's value which is 100.
+Line 11 invokes show() on son and prints "This is in child class".
+Hence this is the answer.
+Point to be noted: 
+
+Parent constructor will be automatically invoked if Child class is not having a constructor.
+
+A parent method can be invoked using child object as it is inherited to the child.
+
+Q2 of 3
+What is the output of the following code snippet?
+
+class Parent:
+    def __init__(self,num):
+        self.__num=num
+    def get_num(self):
+        return self.__num
+class Child(Parent):
+    def __init__(self,val,num):
+        self.__val=val
+    def get_val(self):
+        return self.__val
+son=Child(100,10)
+print("Parent: Num:",son.get_num())
+print("Child: Val:",son.get_val())
+ 
+
+Error: child object has no attribute as __num
+10 100
+100 10
+Option Error: child object has no attribute as __num is Correct
+
+Explanation :
+
+Line 11 creates an object of Child class, son with __val=100.
+But since the constructor of Child class is not invoking Parent class constructor, __num is not created as an attribute of son.
+Hence this is the answer.
+Point to be noted: When parent and child classes are having constructors, it is compulsory to invoke the parent constructor from the child constructor using super().
+
+Q3 of 3
+What will be the output of the code given below?
+
+class A:
+    def __init__(self):
+        self.var1=100
+
+    def display1(self,var1):
+        print("class A :", self.var1)
+class B(A):
+    def display2(self,var1):
+        print("class B :", self.var1)
+
+obj=B()
+obj.display1(200)
+ 
+
+class B: 200
+class B: 100
+class A: 100
+class A: 200
+Error: Child object does not have an attribute var1
+Option class A: 100 is Correct
+
+Explanation :
+
+Line 11 creates an object of child class, obj with var1=100.
+Line 12 invokes display1() on obj by passing local variable var1 as 200.
+But Line 6 inside display1() is printing obj’s var1 which is 100.
+Hence this is the answer.
+Point to be noted: When child class is not having a constructor, parent class constructor will be automatically called while creating a child object.

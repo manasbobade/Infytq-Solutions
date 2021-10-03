@@ -1,0 +1,68 @@
+Q1 of 2
+What will be the output of the code given below?
+
+class A:
+    def m1(self):
+        return 20
+class B(A):
+    def m1(self):
+        return 30
+    def m2(self):
+        return 40
+class C(B):
+    def m2(self):
+        return 20
+obj1=A()
+obj2=B()
+obj3=C()
+print(obj1.m1() + obj3.m1()+ obj3.m2())
+ 
+
+Error: Method m1 should be overridden in class C.
+80
+70
+90
+Option 70 is Correct
+
+Explanation :
+
+Line 12, 13 and 14 create objects of class A (obj1), class B (obj2) and class C (obj3) respectively.
+Line 15 invokes
+
+obj1.m1() which takes control to m1() of class A returning 20
+obj3.m1() which takes control to m1() of class B returning 30 &
+obj3.m2() which takes control to m2() of class C returning 20.
+Hence this is the answer.
+Point to be noted: When an overridden method is invoked, which method will be invoked depends on the object type. If the object belongs to child class, child's method will be invoked. If it belongs to parent class, parent's method will be invoked.
+
+Q2 of 2
+What will be the output of the code given below?
+
+class A:
+    def m1(self):
+        return 20
+class B(A):
+    def m1(self):
+        val=super().m1()+30
+        return val
+class C(B):
+    def m1(self):
+        val=self.m1()+20
+        return val
+obj=C()
+print(obj.m1())
+ 
+
+70
+20
+RunTimeError: Maximum recursion depth exceeded
+Option RunTimeError: Maximum recursion depth exceeded is Correct
+
+Explanation :
+
+Line 12 creates an object of C class, obj.
+Line 13 invokes overridden method m1() of C class on obj.
+Control reaches Line 10 inside m1() of C class.
+But self.m1() in that line results in invoking the same method recursively resulting in run time error.
+Hence this is the answer.
+Point to be noted: While invoking overridden method from child class, if accidentally self.method_name() is written instead of super().method_name(), it will result in recursively calling the child method.v
