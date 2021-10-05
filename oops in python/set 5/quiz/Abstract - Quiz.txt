@@ -1,0 +1,262 @@
+Q1 of 6
+What is the output of the following code snippet?
+
+from abc import ABCMeta, abstractmethod
+class Parent(metaclass=ABCMeta):
+    def __init__(self):
+        self.num=100
+
+    @abstractmethod
+    def show(self):
+        pass
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        self.__var=10
+
+    def show(self):
+        print(self.num)
+        print(self.__var)
+
+obj=Parent()
+obj.show()
+a) 100
+    10
+
+b) 10
+    100
+
+c) Error: abstract method should always have a valid statement other than pass
+
+d) Error: abstract class cannot be instantiated
+
+a
+b
+c
+d
+Option d is Correct
+
+Explanation :
+
+Parent is an abstract class and in Line 19 we are trying to create an object of Parent class.
+This results in run time error as an abstract class cannot be instantiated.
+Hence this is the answer.
+Point to be noted: We cannot create object of abstract class.
+
+Q2 of 6
+What is the output of the following code snippet?
+
+from abc import ABCMeta, abstractmethod
+class Parent(metaclass=ABCMeta):
+    def __init__(self):
+        self.num=5
+    @abstractmethod
+    def show(self):
+        pass
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        self.__var=10
+    def show(self):
+        print(self.num)
+        print(self.__var)
+
+
+obj=Child()
+obj.show()
+a) 10
+    5
+
+b) 5
+    10
+
+c) Error: an abstract method cannot be overridden in child class
+
+d) Error: class Child should be abstract.
+
+a
+b
+c
+d
+Option b is Correct
+
+Explanation :
+
+Line 18 creates an object of Child class, obj with num=5 and __var=10.
+Line 19 invokes overridden method show() of Child class on obj printing values of obj’s num and obj’s __var which is 5 and 10 respectively.
+Hence this is the answer.
+
+Point to be noted: An abstract method must be overridden in child class. If not, child class is considered as abstract.
+
+Q3 of 6
+What is the output of the following code snippet?
+
+from abc import ABCMeta, abstractmethod
+class Parent(metaclass=ABCMeta):
+    def __init__(self):
+        print(100)
+
+    @abstractmethod
+    def show(self):
+        pass
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        print(10)
+
+obj=Child()
+obj.show()
+a) 100
+    10
+
+b) Error: abstract class cannot be instantiated
+
+a
+b
+Option b is Correct
+
+Explanation :
+
+ 
+
+Class Child is an abstract class as it is not overriding the abstract method, show() of Parent class.
+Hence this is the answer.
+
+Point to be noted: An abstract method must be overridden in child class. If not, child class is considered as abstract.
+
+Q4 of 6
+What is the output of the following code snippet?
+
+from abc import ABCMeta, abstractmethod
+class Parent(metaclass=ABCMeta):
+    def __init__(self):
+        self.num=5
+    @abstractmethod
+    def show(self):
+        pass
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        self.var=10
+
+class GrandChild(Child):
+    def show(self):
+        print(self.num)
+        print(self.var)
+        print("This is possible")
+
+obj=GrandChild()
+obj.show()
+a) 5
+   10
+   This is possible
+
+b) 10
+     5
+     This is possible
+
+c) Error: Child class should override abstract method show() of Parent class
+
+d) Error: Child class should be declared as abstract
+
+a
+b
+c
+d
+Option a is Correct
+
+Explanation :
+
+Line 20 creates an object of GrandChild, obj with num=5 and var=10.
+Line 21 invokes overridden method show() of GrandChild class on obj printing obj's num and var which is 5 and 10.
+Hence this is the answer.
+
+Point to be noted: In multi-level inheritance, an abstract method must be overridden by one of the child classes. All other child classes between the parent and this one will be considered as abstract.
+
+Q5 of 6
+What will be the output of the code given below?
+
+from abc import ABCMeta, abstractmethod
+class A(metaclass=ABCMeta):
+    def __init__(self):
+        print("123")
+    @abstractmethod
+    def method1(self):
+        pass
+class B(A):
+    def method2(self):
+        print("456")
+obj=B()
+obj.method2()
+a) 123
+    456
+
+b) 123
+
+c) 456
+
+d) Error: class B cannot be instantiated
+
+a
+b
+c
+d
+Option d is Correct
+
+Explanation :
+
+Line 11 is trying to create an object of abstract class, B. Class B is abstract as it is not overriding the abstract method, method1() of class A.
+Hence this is the answer.
+
+Point to be noted: An abstract method must be overridden in child class. If not, child class is considered as abstract.
+
+Q6 of 6
+What kind of relationship is listed below?
+
+class Trade:
+    def __init__(self):
+        self.__trade_detail = None
+
+    def get_trade_detail(self):
+        return self.__trade_detail
+
+    def set_trade_detail(self, value):
+        self.__trade_detail = value
+
+class TradeDetail:
+    def __init__(self):
+        self.__trade_id = None
+        self.__order_id = None
+
+    def get_trade_id(self):
+        return self.__trade_id
+
+    def get_order_id(self):
+        return self.__order_id
+
+    def set_trade_id(self, value):
+        self.__trade_id = value
+
+    def set_order_id(self, value):
+        self.__order_id = value
+
+t=Trade()
+trade_detail=TradeDetail()
+trade_detail.set_trade_id(10)
+trade_detail.set_order_id(42)
+t.set_trade_detail(trade_detail)
+ 
+
+Aggregation
+Inheritance
+Abstract class
+None of the above
+Option Aggregation is Correct
+
+Explanation :
+
+In line 9 we are accessing the color of cover. However, color is a private attribute in Cover class and hence it cannot be accessed outside the Cover class

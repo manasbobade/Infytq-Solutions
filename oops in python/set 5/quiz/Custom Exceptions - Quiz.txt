@@ -1,0 +1,425 @@
+Q1 of 8
+What is the output of the below program?
+
+class InvalidAccountException(Exception):
+    pass
+class Account:
+    account_list=[1001,1002,1003,1004]
+    def validate_account(self,account_id):
+        status=0
+        for acct_id in self.account_list:
+            if(account_id==acct_id):
+                status=1
+                break
+        if(status!=0):
+            return True
+        else:
+            raise InvalidAccountException
+try:
+    account1=Account()
+    account1.validate_account(1006)
+    print("Valid account number")
+except InvalidAccountException:
+    print("Invalid account number")
+ 
+
+Valid account number
+Invalid account number
+Error: Element not found in list
+Option Invalid account number is Correct
+
+Explanation :
+
+Line 16 creates an object of Account class, account1 and initializes static variable account_list with [1001,1002,1003,1004].
+Line 17 invokes validate_account() on account1 by passing 1006.
+As 1006 is not present in account_list, control reaches line 14 raising InvalidAccountException.
+This takes control to line 20 printing "Invalid account number".
+Hence this is the answer.
+
+Point to be noted: When an exception is raised, control goes to the corresponding except block and continues execution.
+
+Q2 of 8
+What will be the output of the code given below?
+
+class NameLengthException(Exception):
+    pass
+class EmployeeIdException(Exception):
+    pass
+class Employee:
+    __trials=0
+    def __init__(self,emp_id,emp_name):
+        self.__emp_name=emp_name
+        self.__emp_id=emp_id
+    def validate_name(self):
+        try:
+            if(len(self.__emp_name) < 4):
+                Employee.__trials=Employee.__trials+1
+                raise NameLengthException
+            if( not(self.__emp_id.startswith('E'))):
+                raise EmployeeIdException
+        except NameLengthException:
+            Employee.__trials=Employee.__trials+1
+            print(Employee.__trials)
+        except EmployeeIdException:
+            Employee.__trials=Employee.__trials+1
+            print(Employee.__trials)
+emp1=Employee('E1001','Tom')
+emp1.validate_name()
+emp2=Employee('1001','Tomy')
+emp2.validate_name()
+a) 2
+    3
+
+b) 2
+    1
+
+c) 3
+
+d) 2
+
+a
+b
+c
+d
+Option a is Correct
+
+Explanation :
+
+Line 23 creates an object of Employee class, emp1 with __emp_id='E1001' and __emp_name="Tom" and initializes static variable, __trials to 0.
+Line 24 invokes validate_name() on emp1 and as emp1's __emp_name is having < 4 chars, lines 13, 14, 18 and 19 are executed thereby printing 2.
+Line 25 creates another object of Employee class, emp2 with __emp_id="1001" and __emp_name="Tomy".
+Line 26 invokes validate_name() on emp2 and as emp2's __emp_id is not starting with "E", lines 16,21 and 22 are executed thereby printing 3.
+Hence this is the answer.
+
+Point to be noted: In this case, exception is raised based on the instance variable values of each object. It is not necessary for all objects to raise the same exception.
+
+Q3 of 8
+What will be the output of the code given below?
+
+class Project:
+    def __init__(self,employee_list):
+        self.__employee_list=employee_list
+
+    def validate_employee(self,employee_id):
+        try:
+            if employee_id not in self.__employee_list:
+                raise Exception
+                print("1")
+        except Exception:
+            print("2")
+
+project1=Project([1001,1002,1003])
+project1.validate_employee(1005)
+print("3")
+a) 2
+
+b) 2
+    3
+
+c) 2
+    1
+    3
+
+d) 3
+
+a
+b
+c
+d
+Option b is Correct
+
+Explanation :
+
+Line 13 creates an object of Project class, project1 with __employee_list=[1001, 1002, 1003]
+Line 14 invokes validate_employee() on project1 by passing 1005.
+As 1005 is not a valid employee_id, control reaches Line 8 raising Exception which takes control to Line 11 printing "2".
+Control comes out of the method, continues execution and reaches line 15 printing "3".
+Hence this is the answer.
+Point to be noted:
+When an exception is raised, control goes to the corresponding except block and continues execution from there. Control will not come back to the line which raised the exception.
+
+Q4 of 8
+What will be the output of the code given below?
+
+class NotEligibleException(Exception):
+    pass
+class Employee:
+    def __init__(self,salary):
+        self.__salary=salary
+
+    def check_salary(self):
+        if(self.__salary < 2000):
+            raise NotEligibleException
+            return False
+        else:
+            return True
+
+emp1=Employee(5000)
+emp2=Employee(1000)
+try:
+    status=emp1.check_salary()
+    print(status)
+    status=emp2.check_salary()
+    print(status)
+except NotEligibleException:
+    print("Not Eligible")
+a) True
+    Not Eligible
+
+b) True
+    False
+
+c) True
+    Not Eligible
+    False
+
+a
+b
+c
+Option a is Correct
+
+Explanation :
+
+Line 14 creates an object of Employee, emp1 with __salary=5000.
+Line 15 creates another object of Employee, emp2 with __salary=1000.
+In the try block,
+line 17 invokes check_salary() on emp1. As emp1's __salary is > 2000, line 12 is executed resulting in printing True in line 18.
+line 19 invokes check_salary() on emp2. As emp2's __salary is < 2000, line 9 is executed resulting in executing except block in line 21 printing "Not Eligible".
+Hence this is the answer.
+
+Point to be noted:
+When an exception is raised, control goes to the corresponding except block and continues execution from there. Control will not come back to the line which raised the exception.
+
+Q5 of 8
+What will be the output of the code given below?
+
+class NotEligibleException(Exception):
+    pass
+class Employee:
+    def __init__(self,salary):
+        self.__salary=salary
+
+    def check_salary(self):
+        try:
+            if(self.__salary < 2000):
+                raise NotEligibleException
+            else:
+                return True
+        except NotEligibleException:
+            print("1")
+            raise NotEligibleException
+
+emp1=Employee(1000)
+try:
+    status=emp1.check_salary()
+    print("2")
+except NotEligibleException:
+    print("3")
+a) 2
+
+b) Error: An exception cannot be raised from except block of another exception
+
+c) Error: Two exceptions (inside a method and calling block) cannot have the same name
+
+d) 1
+    3
+
+a
+b
+c
+d
+Option d is Correct
+
+Explanation :
+
+Line 17 creates an object of Employee class, emp1 with __salary=1000.
+In the try block, line 19 invokes check_salary() on emp1 which prints "1" and raises NotEligibleException in line 15 which propagates to line 21.
+Thus control reaches line 22 printing "3".
+Hence this is the answer.
+
+Point to be noted:
+When two exceptions (inside a method and a calling block) have the same name, depending on the scope, appropriate exception will be raised.
+
+Q6 of 8
+What will be the output of the code given below?
+
+class InvalidEmployeeException(Exception):
+    pass
+class Project:
+    def __init__(self,employee_list):
+        self.__employee_list=employee_list
+
+    def validate_employee(self,employee_id):
+        flag=False
+        for key in self.__employee_list:
+            if(key==employee_id):
+                flag=True
+        if(flag==False):
+            raise InvalidEmployeeException
+            print("1")
+        return True
+
+project1=Project([1001,1002,1003])
+try:
+    print(project1.validate_employee(1005))
+except Exception:
+    print("2")
+except InvalidEmployeeException:
+    print("3")
+a) 2
+
+b) 2
+    3
+
+c) 3
+
+d) Error: Except should be the last block
+
+a
+b
+c
+d
+Option a is Correct
+
+Explanation :
+
+Line 17 creates an object of Project class, project1 with __employee_list=[1001,1002,1003]
+In the try block, line 19 invokes validate_employee() on project1 by passing 1005. As 1005 is an invalid employee id, control reaches line 13 which raises InvalidEmployeeException. As this exception is not handled in the method, it propagates to the method calling block. But in method calling block as generic exception is handled before this one, control reaches line 21 printing "2".
+Hence this is the answer.
+
+Point to be noted: except block for Exception class should be written at the end as this will mask the rest of the custom except blocks.
+
+Q7 of 8
+What will be the output of the code given below?
+
+class CustomerBusiness:
+    def get_customer(self,cust_id):
+        if cust_id == "":
+            raise InvalidCustomerException()
+        return cust_id
+
+class AccountUI:
+    def deposit_money_ui(self):
+        try:
+            cust_id = CustomerBusiness().get_customer("")
+        except Exception:
+            print("Exception raised")
+        except InvalidCustomerException:
+            print("Invalid Customer Exception raised")
+
+class InvalidCustomerException(Exception):
+    	pass
+
+a=AccountUI()
+a.deposit_money_ui()
+ 
+
+Exception raised
+Invalid Customer Exception raised
+Compile Time Error
+No Exception
+Option Exception raised is Correct
+
+Explanation :
+
+Your answer is Right
+
+Q8 of 8
+What should be done in order to raise InvalidCustomerException?
+
+class CustomerBusiness:
+    def get_customer(self,cust_id):
+        if cust_id == "":
+            raise InvalidCustomerException()
+        return cust_id
+
+class AccountUI:
+    def deposit_money_ui(self):
+        try:
+            cust_id = CustomerBusiness().get_customer("")
+        except Exception:
+            print("Exception raised")
+        except InvalidCustomerException:
+            print("Invalid Customer Exception raised.")
+
+class InvalidCustomerException():
+    pass
+
+a=AccountUI()
+a.deposit_money_ui()
+Option A
+
+class CustomerBusiness:
+    def get_customer(self,cust_id):
+        if cust_id == "":
+            raise InvalidCustomerException()
+        return cust_id
+
+class AccountUI:
+    def deposit_money_ui(self):
+        try:
+            cust_id = CustomerBusiness().get_customer("")
+        except Exception:
+            print("Exception raised")
+        except InvalidCustomerException:
+            print("Invalid Customer Exception raised.")
+
+class InvalidCustomerException(Exception):
+    pass
+
+a=AccountUI()
+a.deposit_money_ui()
+Option B
+
+class CustomerBusiness:
+    def get_customer(self,cust_id):
+        if cust_id == "":
+            raise InvalidCustomerException()
+        return cust_id
+
+class AccountUI:
+    def deposit_money_ui(self):
+        try:
+            cust_id = CustomerBusiness().get_customer("")
+		except InvalidCustomerException:
+            print("Invalid Customer Exception raised.")
+        except Exception:
+            print("Exception raised")
+
+class InvalidCustomerException(Exception):
+    pass
+
+a=AccountUI()
+a.deposit_money_ui()
+Option C
+
+class CustomerBusiness:
+    def get_customer(self,cust_id):
+        if cust_id == None:
+            raise InvalidCustomerException()
+        return cust_id
+
+class AccountUI:
+    def deposit_money_ui(self):
+        try:
+            cust_id = CustomerBusiness().get_customer("")
+        except Exception:
+            print("Exception raised")
+        except InvalidCustomerException:
+            print("Invalid Customer Exception raised.")
+
+class InvalidCustomerException(Exception):
+    pass
+
+a=AccountUI()
+a.deposit_money_ui()
+ 
+
+Option A
+Option B
+Option C
+Option Option B is Correct
+
+Explanation :
+
+Your answer is Right
